@@ -1,2 +1,3 @@
 # Timer-Javascript
-Projeto Timer
+
+Timer em javascript utilizando setInterval 
