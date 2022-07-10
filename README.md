@@ -6,5 +6,6 @@ Timer em javascript utilizando setInterval
 Curso de JavaScript e TypeScript do básico ao avançado 2022 - Udemy.
 
 
-[X]. Importando escopo
+- [X] Importando escopo.
+- [X] Rodando o evento click nos botões. 
 

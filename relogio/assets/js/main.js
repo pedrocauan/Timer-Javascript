@@ -1,7 +1,24 @@
-const btnRelogio = document.querySelector("#relogio")
+const btnRelogio = document.querySelector(".relogio")
 
-const btnPausar = document.querySelector("#pausar")
+const btnIniciar = document.querySelector(".iniciar")
 
-const btnZerar = document.querySelector("#zerar")
+const btnPausar = document.querySelector(".pausar")
+
+const btnZerar = document.querySelector(".zerar")
 
 
+//Botao iniciar
+btnIniciar.addEventListener("click", function() {
+  alert("iniciar")
+})
+
+//Botao de pausar
+btnPausar.addEventListener("click", function(){
+  alert("Pausar")
+})
+
+
+//Botao de zerar
+btnZerar.addEventListener("click", function() {
+  alert("Zerar")
+})
