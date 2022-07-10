@@ -1,15 +1,21 @@
-const btnRelogio = document.querySelector(".relogio")
+const relogio = document.querySelector(".relogio")
 
 const btnIniciar = document.querySelector(".iniciar")
 
 const btnPausar = document.querySelector(".pausar")
 
 const btnZerar = document.querySelector(".zerar")
+let segundos = 0
+const data = new Date(0)
 
 
 //Botao iniciar
 btnIniciar.addEventListener("click", function() {
-  alert("iniciar")
+  //Roda o relogio
+  setInterval(() =>{
+    segundos++ //Atualiza a variavel segundos
+    relogio.innerHTML = segundos
+  }, 1000)
 })
 
 //Botao de pausar
