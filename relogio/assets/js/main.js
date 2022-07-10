@@ -5,8 +5,8 @@ const btnIniciar = document.querySelector(".iniciar")
 const btnPausar = document.querySelector(".pausar")
 
 const btnZerar = document.querySelector(".zerar")
-let segundos = 0 //Segundos contados
-let timer
+let segundos = 0 //Segundos contados no setInterval
+let timer //hora que vai aparecer na tela
 
 //cria a hora formatada com os segundos que se passaram
 const createHour = function() {
@@ -17,8 +17,9 @@ const createHour = function() {
   })
 }
 
- //Roda o relogio
+ //Roda o relogio QUANDO  ALGUM DOS BOTOES FOR CLICADO
 const init = function() {
+  relogio.classList.remove("pausado") //Tira a cor vermelha do timer 
    //guarda a hora no timer 
    timer = setInterval(() =>{
     segundos++ //Atualiza a variavel segundos
@@ -27,18 +28,32 @@ const init = function() {
 }
 
 
-//Botao iniciar
-btnIniciar.addEventListener("click", function() {
-  init()
+document.addEventListener("click", function(e) {
+  const element = e.target //Botao que ta sendo clicado
+
+  //Ve se o botao q ta sendo clicado é o de zera
+  if(element.classList.contains("zerar"))
+  {
+    clearInterval(timer)
+    relogio.innerHTML = "00:00:00"
+    segundos = 0 //Zera o timer
+  }
+
+  //Ve se  o botao q ta sendo clicado é o de iniciar
+  if(element.classList.contains("iniciar"))
+  {
+    clearInterval() //para o timer
+    init()
+  }
+
+  //ve se o botao que ta sendo clicado é o de pausar
+  if(element.classList.contains("pausar"))
+  {
+    clearInterval(timer) //Para o timer
+    relogio.classList.add("pausado")
+  }
 })
 
-//Botao de pausar
-btnPausar.addEventListener("click", function(){
-  clearInterval(timer)
-})
 
 
-//Botao de zerar
-btnZerar.addEventListener("click", function() {
-  alert("Zerar")
-})
+
