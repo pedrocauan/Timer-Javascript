@@ -1,12 +1,15 @@
 
-const rodaRelogio = function () {
-  const relogio = document.querySelector(".relogio")
-  const btnIniciar = document.querySelector(".iniciar")
-  const btnPausar = document.querySelector(".pausar")
-  const btnZerar = document.querySelector(".zerar")
+const relogio = document.querySelector(".relogio")
+const btnIniciar = document.querySelector(".iniciar")
+const btnPausar = document.querySelector(".pausar")
+const btnZerar = document.querySelector(".zerar")
 
-  let segundos = 0 //Segundos contados no setInterval
-  let timer //hora que vai aparecer na tela
+let segundos = 0 //Segundos contados no setInterval
+let timer //hora que vai aparecer na tela
+let click = false
+
+const rodaRelogio = function () {
+  
 
   //cria a hora formatada com os segundos que se passaram
   const createHour = function () {
@@ -17,8 +20,10 @@ const rodaRelogio = function () {
     })
   }
 
+
   //Roda o relogio QUANDO  ALGUM DOS BOTOES FOR CLICADO
   const init = function () {
+    clearInterval(timer)
     relogio.classList.remove("pausado") //Tira a cor vermelha do timer 
     //guarda a hora no timer 
     timer = setInterval(() => {
@@ -27,10 +32,12 @@ const rodaRelogio = function () {
     }, 1000)
   }
 
+  
+
   document.addEventListener("click", function (e) {
     const element = e.target //Botao que ta sendo clicado
 
-    //Ve se o botao q ta sendo clicado é o de zera
+    //Ve se o botao q ta sendo clicado é o de zerar
     if (element.classList.contains("zerar")) {
       clearInterval(timer)
       relogio.innerHTML = "00:00:00"
@@ -49,6 +56,7 @@ const rodaRelogio = function () {
       clearInterval(timer) //Para o timer
       relogio.classList.add("pausado")
     }
+    
   })
 }
 
